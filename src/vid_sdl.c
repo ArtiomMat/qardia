@@ -53,6 +53,10 @@ bool VID_InitWindow(VID_Window *window, const char *title, int width, int height
     goto FAIL_;
   }
 
+  window->img.p = window->os->s->pixels;
+  window->img.w = width;
+  window->img.h = height;
+
   return true;
 FAIL_:
   VID_FreeWindow(window);
@@ -79,12 +83,7 @@ void VID_FreeWindow(VID_Window *window)
   }
 }
 
-VID_Color* VID_GetPixels(VID_Window *window)
-{
-  return window->os->s->pixels;
-}
-
-bool VID_PutPixels(VID_Window *window)
+bool VID_BlitPixels(VID_Window *window)
 {
   return SDL_BlitSurface(window->os->s, NULL, window->os->ws, NULL);
 }

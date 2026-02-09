@@ -1,6 +1,8 @@
 #include "con.h"
+#include "d2.h"
 #include "nifti.h"
 #include "vid.h"
+#include "vid_base.h"
 #include <string.h>
 
 int main()
@@ -14,10 +16,10 @@ int main()
 
   VID_Window window;
   VID_InitWindow(&window, "INVINCIBLE", 500, 500);
-  VID_Color pixels[500 * 500] = {0, 0, 0, 0, 0, 255};
+  
+  D2_Fill(&window.img, (VID_Color){0, 160, 128, 32});
 
-  memcpy(VID_GetPixels(&window), pixels, 500 * 500 * 4);
-  VID_PutPixels(&window);
+  VID_BlitPixels(&window);
 
   VID_Event e;
   while(1)
@@ -36,6 +38,9 @@ int main()
         break;
       case VID_EVENT_UP:
         CON_INFO("UP %d", e.data.down.code);
+        break;
+
+      default:
         break;
       }
     }

@@ -17,4 +17,3 @@ typedef struct
   };
   float a[4];
 } float4;
-

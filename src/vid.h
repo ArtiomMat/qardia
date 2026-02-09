@@ -1,7 +1,8 @@
 #pragma once
 
+#include "vid_base.h"
+
 #include <stddef.h>
-#include <stdint.h>
 #include <stdbool.h>
 
 typedef struct VID_OsWindow VID_OsWindow;
@@ -9,15 +10,8 @@ typedef struct VID_OsWindow VID_OsWindow;
 typedef struct
 {
   VID_OsWindow* os;
+  VID_Image img;
 } VID_Window;
-
-/**
- * VID pixels are in XBGR format.
- */
-typedef struct
-{
-  uint8_t x, b, g, r;
-} VID_Color;
 
 typedef enum
 {
@@ -138,8 +132,7 @@ void VID_Free(void);
 
 bool VID_InitWindow(VID_Window* window, const char* title, int width, int height);
 void VID_FreeWindow(VID_Window* window);
-VID_Color* VID_GetPixels(VID_Window* window);
-bool VID_PutPixels(VID_Window* window);
+bool VID_BlitPixels(VID_Window* window);
 void VID_Refresh(VID_Window* window);
 
 bool VID_PollEvent(VID_Window* window, VID_Event* e);

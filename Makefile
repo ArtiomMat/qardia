@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -std=c99 -ggdb -Wall
+CFLAGS = -std=c99 -ggdb -Wall -fopenmp
 CLIBS = -lSDL3
 OBJDIR = obj
 SRCDIR = src
