@@ -15,7 +15,7 @@ typedef __m256 VECS_Quad;
 
 #define VECS_QuadSplat(x) ((VECS_QuadReg)(_mm256_set1_ps(x)))
 /** Set all */
-#define VECS_QuadSetEach(x, y, z, w) ((VECS_QuadReg)(_mm256_set_ps(w, y, z, x, w, y, z, x)))
+#define VECS_QuadSetEach(x, y, z, w) ((VECS_QuadReg)(_mm256_set_ps(w, y, z, x, w, z, y, x)))
 
 /** `ptr` must be aligned to `VECS_SIZE`. */
 #define VECS_QuadLoad(ptr) ((VECS_QuadReg)(_mm256_load_ps(ptr)))
