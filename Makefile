@@ -1,6 +1,6 @@
 CC = gcc
-CFLAGS = -std=c99 -ggdb -Wall -fopenmp
-CLIBS = -lSDL3
+CFLAGS = -std=c99 -ggdb -Wall -fopenmp -march=native -msse4.2 -mavx2 -mavx
+CLIBS = -lSDL3 -lm
 OBJDIR = obj
 SRCDIR = src
 EXE = qardia
