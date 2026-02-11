@@ -1,13 +1,10 @@
+/** VOlume Ray Casting module. */
+
 #pragma once
 
 #include "m.h"
 #include "vid.h"
-
-typedef struct
-{
-  VID_Color* p;
-  int w, h;
-} VORC_Context;
+#include "vid_base.h"
 
 typedef struct
 {
@@ -18,14 +15,25 @@ typedef struct
 
 typedef struct
 {
-  float* data;
   int size[3];
+  float data[];
 } VORC_Volume;
 
+typedef struct
+{
+  VID_Image img;
+  VORC_Camera cam;
+  VORC_Volume* vol;
+} VORC_Context;
+
+VORC_Volume* VORC_InitVolume(int width, int height, int depth);
+
 /**
- * `pixels` is not managed by VORC.
+ * `image` is not freed by `VORC`.
  */
-void VORC_InitContext(VORC_Context* ctx, VID_Color* pixels, int width, int height);
-void VORC_SetCamera(VORC_Context* ctx, VORC_Camera* camera);
-void VORC_SetVolume(VORC_Context* ctx, VORC_Camera* camera);
+void VORC_InitContext(VORC_Context* ctx, VID_Image* image);
+void VORC_BindCamera(VORC_Context* ctx, VORC_Camera* camera);
+void VORC_BindVolume(VORC_Context* ctx, VORC_Volume* volume);
+
+void VORC_Render(VORC_Context* ctx);
 
