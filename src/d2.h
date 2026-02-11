@@ -11,3 +11,7 @@ static inline void D2_Set(VID_Image* img, int x, int y, VID_Color color)
 {
     img->p[x + y * img->w] = color;
 }
+
+void D2_DrawLineOnY(VID_Image* img, int x, int length);
+void D2_DrawLineOnX(VID_Image* img, int y, int length);
+

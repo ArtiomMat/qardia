@@ -9,7 +9,7 @@
  */
 typedef struct
 {
-  uint8_t x, b, g, r;
+  uint8_t r, g, b, x;
 } VID_Color;
 
 typedef struct

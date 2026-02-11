@@ -20,6 +20,6 @@ void D2_DrawLine(VID_Image* img, int fromX, int fromY, int toX, int toY)
     float now[2] = {fromX, fromY};
     float to[2] = {toX, toY};
 
-    int slope = (now[sdim])
+    // int slope = (now[sdim])
 
 }

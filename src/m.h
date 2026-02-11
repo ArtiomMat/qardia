@@ -9,7 +9,7 @@ typedef union
   float a[3];
 } float3;
 
-typedef struct
+typedef __attribute__((aligned(16))) struct
 {
   struct
   {
@@ -17,3 +17,4 @@ typedef struct
   };
   float a[4];
 } float4;
+
