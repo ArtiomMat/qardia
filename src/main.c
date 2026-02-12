@@ -17,8 +17,7 @@ int main()
   VID_Window window;
   VID_InitWindow(&window, "INVINCIBLE", 500, 500);
   
-  // D2_Fill(&window.img, (VID_Color){0, 160, 128, 32});
-  UI_DrawBox(&window.img, 10, 10, 60, 40, 1, false);
+  D2_Fill(&window.img, (VID_Color){0, 160, 128, 32});
 
   VID_BlitPixels(&window);
 
